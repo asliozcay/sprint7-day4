@@ -31,7 +31,7 @@ export default function Login(props) {
     password: false,
     terms: false,
   });
-  let history = useHistory();
+ 
 
   const validateEmail = (email) => {
     return String(email)
@@ -96,6 +96,7 @@ export default function Login(props) {
           onChange={handleChange}
           value={form.email}
           invalid={errors.email}
+          data-cy="email-input"
         />
         {errors.email && <FormFeedback>{errorMessages.email}</FormFeedback>}
       </FormGroup>
@@ -110,6 +111,7 @@ export default function Login(props) {
           onChange={handleChange}
           value={form.password}
           invalid={errors.password}
+          data-cy="password-input"
         />
         {errors.password && (
           <FormFeedback>{errorMessages.password}</FormFeedback>
@@ -123,6 +125,7 @@ export default function Login(props) {
           type="checkbox"
           onChange={handleChange}
           invalid={errors.terms}
+          data-cy="terms-input"
         />{' '}
         <Label htmlFor="terms" check>
           I agree to terms of service and privacy policy
@@ -130,7 +133,7 @@ export default function Login(props) {
         {errors.terms && <FormFeedback></FormFeedback>}
       </FormGroup>
       <FormGroup className="text-center p-4">
-        <Button color="primary" disabled={!isValid}>
+        <Button color="primary" disabled={!isValid} data-cy="button" >
           Sign In
         </Button>
       </FormGroup>
